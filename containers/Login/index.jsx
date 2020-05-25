@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import { loginUser } from "../../authentication";
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 class Login extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
             username: "",
             password: "",
+            isAuthenticated: false,
             errors: {}
         };
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -31,13 +33,14 @@ class Login extends Component {
             password: this.state.password
         };
         loginUser(user);
+        this.props.history.push("/Home");
     }
 
     render() {
         return (
             <div>
                 <h1>
-                    Login here!
+                    Sign in
                 </h1>
                 <form onSubmit={this.handleSubmit}>
 
@@ -63,11 +66,9 @@ class Login extends Component {
                         />
                     </label>
 
-                    <Link to='/Home'>
-                        <button type="submit" className="">
-                            Login
-                        </button>
-                    </Link>
+                    <button type="submit" className="">
+                        Login
+                    </button>
 
                 </form>
             </div>

@@ -1,15 +1,18 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { logoutUser } from "../../authentication";
+import { getUserName } from "../../helpers";
 
 function Home() {
+    const userName = getUserName();
     return (
         <div>
             <h1>
-                WELCOME HOME!
+                Welcome home {userName}!
             </h1>
-            <Link to='/'>
-                Click here to Logout!!
-            </Link>
+
+            <button type="submit" className="" onClick={logoutUser}>
+                Log out
+            </button>
         </div>
     );
 }

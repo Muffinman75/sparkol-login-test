@@ -5,16 +5,14 @@ import jwt_decode from "jwt-decode";
 
 export const loginUser = user => {
     axios
-        .post("/login", user)
+        .post("http://localhost:3333/login", user)
         .then(res => {
-            console.log('login user res', res);
-            
             const { token } = res.data;
             setAuthToken(token);
             const decoded = jwt_decode(token);
-            localStorage.setItem("user_id", decoded.id);
-            localStorage.setItem("user_name", decoded.userName);
-      })
+            localStorage.setItem("user_id", decoded.user.id);
+            localStorage.setItem("user_name", decoded.user.name);
+    })
 };
 
 const setAuthToken = token => {
@@ -26,10 +24,11 @@ const setAuthToken = token => {
     }
 }
 
-export const logoutUser = () => {
-  localStorage.removeItem("jwtToken");
-  localStorage.removeItem("user_id");
-  localStorage.removeItem("user_name");
-  setAuthToken(false);
-  window.location.href = "/";
+export const logoutUser = (props) => {
+    console.log('props', props);
+    localStorage.removeItem("jwtToken");
+    localStorage.removeItem("user_id");
+    localStorage.removeItem("user_name");
+    //setAuthToken(false);
+    window.location.href = "/";
 };
