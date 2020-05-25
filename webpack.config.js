@@ -16,13 +16,13 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, 'public/'),
     port: 9000,
-    // publicPath: "http://localhost:9000/dist/",
+    publicPath: "http://localhost:9000/dist/",
     hotOnly: true
   },
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
       },
