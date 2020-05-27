@@ -5,11 +5,9 @@ import jwt_decode from "jwt-decode";
 import {hot} from "react-hot-loader";
 
 import Home from '../Home/index.jsx';
-import Login from '../../containers/Login/index.jsx';
+import Login from '../Login/index.jsx';
 
 import { AuthContext, useAuth } from "../../context/auth";
-
-import "./App.scss";
 
 function PrivateRoute({ component: Component, ...rest }) {
     const { authTokens } = useAuth();

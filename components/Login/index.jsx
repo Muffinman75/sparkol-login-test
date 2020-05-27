@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Redirect } from 'react-router-dom';
 import axios from "axios";
 
+import "./Login.scss";
+
 import { useAuth } from "../../context/auth";
 
 
@@ -40,7 +42,7 @@ function Login() {
 
     return (
         <div>
-            <h1>
+            <h1 className="title">
                 Sign in
             </h1>
             <form>
