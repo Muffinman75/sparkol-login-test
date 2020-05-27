@@ -1,79 +1,85 @@
-import React, { Component } from "react";
-import { loginUser } from "../../authentication";
+import React, { useState } from "react";
 import { Redirect } from 'react-router-dom';
+import axios from "axios";
 
-class Login extends Component {
+import { useAuth } from "../../context/auth";
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            username: "",
-            password: "",
-            isAuthenticated: false,
-            errors: {}
-        };
-        this.handleInputChange = this.handleInputChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
 
-    handleInputChange = (event) => {
-        const { name, value } = event.target;
-        
-        // const validationMsg = this.isValid(value);
-    
-        this.setState({
-            [name]: value
+
+function Login() {
+
+    const [isLoggedIn, setLoggedIn] = useState(false);
+    const [isError, setIsError] = useState(false);
+    const [username, setUserName] = useState("");
+    const [password, setPassword] = useState("");
+    const { setAuthTokens } = useAuth();
+  
+    const setHeaderToken = token => token ? axios.defaults.headers.common['Authorization'] = token : delete axios.defaults.headers.common['Authorization'];
+
+    async function postLogin() {
+        await axios.post("http://localhost:3333/login", {
+            username,
+            password
+        }).then(result => {
+            if (result.status === 200) {
+                const { token } = result.data;
+                setHeaderToken(token)
+                setAuthTokens(token);
+                setLoggedIn(true);
+            } else {
+                setIsError(true);
+            }
+        }).catch(e => {
+            setIsError(true);
         });
     }
-    
-    handleSubmit(e) {
-        e.preventDefault();
-        const user = {
-            username: this.state.username,
-            password: this.state.password
-        };
-        loginUser(user);
-        this.props.history.push("/Home");
+  
+    if (isLoggedIn) {
+      return <Redirect to="/Home" />;
     }
 
-    render() {
-        return (
-            <div>
-                <h1>
-                    Sign in
-                </h1>
-                <form onSubmit={this.handleSubmit}>
+    return (
+        <div>
+            <h1>
+                Sign in
+            </h1>
+            <form>
 
-                    <label htmlFor="username">
-                        Username
-                        <input 
-                            id="username"
-                            type="text"
-                            onChange={this.handleInputChange}
-                            value={this.state.username}
-                            name="username"
-                        />
-                    </label>
+                <label htmlFor="username">
+                    Username
+                    <input 
+                        id="username"
+                        type="text"
+                        onChange={e => {
+                            setUserName(e.target.value);
+                        }}
+                        value={username}
+                        name="username"
+                    />
+                </label>
 
-                    <label htmlFor="password">
-                        Password
-                        <input 
-                            id="password"
-                            type="password"
-                            onChange={this.handleInputChange}
-                            value={this.state.password}
-                            name="password"
-                        />
-                    </label>
+                <label htmlFor="password">
+                    Password
+                    <input 
+                        id="password"
+                        type="password"
+                        onChange={e => {
+                            setPassword(e.target.value);
+                        }}
+                        value={password}
+                        name="password"
+                    />
+                </label>
+                { isError &&<p>Invalid Username or Password</p> }
 
-                    <button type="submit" className="">
-                        Login
-                    </button>
 
-                </form>
-            </div>
-        );
-    }
+                <button type="button" className="" onClick={postLogin}>
+                    Login
+                </button>
+
+            </form>
+        </div>
+    );
 }
   
 export default Login;

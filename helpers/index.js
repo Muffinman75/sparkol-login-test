@@ -1,5 +1,5 @@
 
 
-export async function getUserName() {
-    return await localStorage.getItem("user_name");
+export function getUserName() {
+    return localStorage.getItem("user_name");
 }
