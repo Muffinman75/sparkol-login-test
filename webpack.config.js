@@ -7,7 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
   // mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
   // devtool: process.env.NODE_ENV === 'production' ? 'source-map' : 'source-map',
-  entry: './index.js',
+  entry: ['./index.js', './sass/main.scss'],
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(),
@@ -29,10 +29,15 @@ module.exports = {
       {
         test: /\.(css|sass|scss)$/,
         use: [
-          MiniCssExtractPlugin.loader,
           'style-loader',
           'css-loader',
           'sass-loader',
+        ],
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        use: [
+          'file-loader',
         ],
       },
     ],

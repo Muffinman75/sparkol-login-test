@@ -1,17 +1,15 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import { getUserName, logOut } from "../../helpers";
+import { getUserName } from "../../helpers";
 
 function Home() {
     const userName = getUserName();
-    const signOut = logOut();
 
-    // function logOut() {
-    //     localStorage.removeItem("token");
-    //     localStorage.removeItem("user_id");
-    //     localStorage.removeItem("user_name");
-    //     setAuthTokens();
-    // }
+    function logOut() {
+        localStorage.removeItem("token");
+        localStorage.removeItem("user_id");
+        localStorage.removeItem("user_name");
+    }
 
     return (
         <div>
@@ -20,7 +18,7 @@ function Home() {
             </h1>
 
             <Link to="/">
-                <button type="submit" className="" onClick={signOut}>
+                <button type="submit" className="" onClick={logOut}>
                     Sign out
                 </button>
             </Link>

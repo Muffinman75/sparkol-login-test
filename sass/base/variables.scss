@@ -1,0 +1,46 @@
+$primary-colour: #0a1c56;
+
+$text-colour-lighter: #323232;
+$text-colour: #333;
+$text-colour-darker: #272626;
+
+$tooltip-colour: #6247AA;
+
+$input-background-color: #f5f5f5;
+
+$focused-background-color: #fbba20;
+$validation-background-color: #e60303;
+$validation-border-color: #e80602;
+$valid-background-color: $primary-colour;
+
+$link-colour: $primary-colour;
+
+$primary-transition-time: 600ms;
+$secondary-transition-time: 400ms;
+$tertiary-transition-time: 500ms;
+
+$z-index-priority-lower: -1;
+$z-index-priority-low: 1;
+$z-index-priority-medium: 50;
+$z-index-priority-high: 100;
+$z-index-priority-higher: 150;
+$z-index-priority-highest: 200;
+
+$break-phones: 320px;
+$break-large-phones: 576px;
+$break-tablets: 768px;
+$break-medium-desktops: 992px;
+$break-large-desktops: 1200px;
+
+$border-colour: #c9c6c6;
+$box-shadow-color: #bcbcbc;
+$border-colour-darker: #979797;
+$border-colour-lighter: #dedede;
+
+$secondary-font: 'Ubuntu Light';
+$secondary-font-bold: 'Ubuntu Medium';
+
+$primary-font: 'Roboto Mono Medium';
+$primary-font-bold: 'Roboto Regular';
+
+$image-back-chevron: '../assets/images/backChevron.svg';

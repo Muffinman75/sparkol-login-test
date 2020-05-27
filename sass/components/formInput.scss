@@ -1,0 +1,21 @@
+@import '../base/variables.scss';
+
+
+input[type=text], input[type=password] {
+  background-color: $input-background-color;
+  border: 0;
+  padding: 14px 20px;
+  width: 90%;
+}
+
+@media only screen and (min-width: $break-phones) {
+  input[type=text], input[type=password] {
+    width: 90%;
+  }
+}
+
+@media only screen and (min-width: $break-large-phones) {
+  input[type=text], input[type=password] {
+    width: 50%;
+  }
+}
