@@ -9,6 +9,12 @@ form {
     display: flex;
     flex-direction: column;
     margin-left: 10px;
+
+    p {
+        font-family: $secondary-font-bold;
+        font-weight: bold;
+        color: $validation-background-color;
+    }
 }
 
 .submit {
