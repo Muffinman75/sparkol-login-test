@@ -1,0 +1,10 @@
+@import '../../base/variables.scss';
+
+@mixin submit-button {
+    background-color: $primary-colour;
+    border: 0;
+    color: #fff;
+    height: 60px;
+    transition: background-color $primary-transition-time ease-in-out;
+    width: 184px;
+}

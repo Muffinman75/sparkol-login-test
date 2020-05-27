@@ -40,40 +40,38 @@ function Login() {
 
     return (
         <div>
-            <h1 className="title">
+            <h1>
                 Sign in
             </h1>
             <form>
 
-                <label htmlFor="username">
+                <label htmlFor="username" />
                     Username
-                    <input 
-                        id="username"
-                        type="text"
-                        onChange={e => {
-                            setUserName(e.target.value);
-                        }}
-                        value={username}
-                        name="username"
-                    />
-                </label>
+                <input 
+                    id="username"
+                    type="text"
+                    onChange={e => {
+                        setUserName(e.target.value);
+                    }}
+                    value={username}
+                    name="username"
+                />
 
-                <label htmlFor="password">
+                <label htmlFor="password" />
                     Password
-                    <input 
-                        id="password"
-                        type="password"
-                        onChange={e => {
-                            setPassword(e.target.value);
-                        }}
-                        value={password}
-                        name="password"
-                    />
-                </label>
+                <input 
+                    id="password"
+                    type="password"
+                    onChange={e => {
+                        setPassword(e.target.value);
+                    }}
+                    value={password}
+                    name="password"
+                />
+
                 { isError &&<p>Invalid Username or Password</p> }
 
-
-                <button type="button" className="" onClick={postLogin}>
+                <button type="button" className="submit" onClick={postLogin}>
                     Login
                 </button>
 

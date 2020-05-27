@@ -4,4 +4,9 @@
 @import './base/variables';
 
 // Components
-@import '../sass/components/formInput.scss';
+@import '../sass/components/login.scss';
+@import '../sass/components/home.scss';
+
+// Widgets
+@import '../sass/components/widgets/button.scss';
+@import '../sass/components/widgets/formInput.scss';

@@ -12,13 +12,13 @@ function Home() {
     }
 
     return (
-        <div>
+        <div className="logout-container">
             <h1>
                 Welcome home {userName}!
             </h1>
 
             <Link to="/">
-                <button type="submit" className="" onClick={logOut}>
+                <button type="submit" className="logout" onClick={logOut}>
                     Sign out
                 </button>
             </Link>
