@@ -26,7 +26,7 @@ function PrivateRoute({ component: Component, ...rest }) {
     );
 }
 
-function App(props) {
+function App() {
     const existingTokens = localStorage.getItem("token");
     const [authTokens, setAuthTokens] = useState(existingTokens);
 
