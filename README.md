@@ -1,3 +1,21 @@
-# sparkol-login-test
+# Sparkol-Login-Test
 
-Be aware that the home page is not 100% secure. Point out that this is ok as long as any sensitive data access is done via an api using the token and verified.
+Please be aware that the home page is not 100% secure. This is ok as long as any sensitive data access is done via an api using the jwt and verified.
+
+## Prerequisites
+
+You will need to clone, install and run the auth service specified here (https://github.com/dantame/interview-authentication-service) to make this project run. 
+
+### Development
+
+```javascript
+npm install
+npm run start:dev
+```
+
+### Production
+
+```javascript
+npm install
+npm run build
+```
