@@ -1,12 +1,9 @@
-/* eslint-disable no-unused-vars */
 const path = require('path');
 const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  // mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
-  // devtool: process.env.NODE_ENV === 'production' ? 'source-map' : 'source-map',
   entry: ['./index.js', './sass/main.scss'],
   plugins: [
     new CleanWebpackPlugin(),
