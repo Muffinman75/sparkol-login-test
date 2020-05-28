@@ -4,7 +4,7 @@ Please be aware that the home page is not 100% secure. This is ok as long as any
 
 ## Prerequisites
 
-You will need to clone, install and run the auth service specified here (https://github.com/dantame/interview-authentication-service) to make this project run. 
+You will need to clone, install and run the auth service specified here (https://github.com/dantame/interview-authentication-service) in order to make this project run. 
 
 ### Development
 
